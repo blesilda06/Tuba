@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tuba, Benguet | Mountain Paradise of the North</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2c7be5;
+      --secondary: #ffd700;
+      --dark: #1a2b3c;
+      --light: #f8f9fa;
+      --accent: #28a745;
+      --text: #333;
+      --text-light: #f5f9fc;
+      --gradient: linear-gradient(135deg, #2c7be5 0%, #1a2b3c 100%);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background-color: var(--light);
+      scroll-behavior: smooth;
+    }
+    
+    header {
+      position: relative;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(Municipal-Hall.2.png) no-repeat center center/cover;
+      z-index: -2;
+    }
+    
+    .header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+    
+    header h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+      animation: fadeInDown 1s ease;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    
+    header p {
+      font-size: clamp(1.1rem, 2vw, 1.8rem);
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+      animation: fadeIn 1.5s ease;
+      font-weight: 300;
+    }
+    
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(26, 43, 60, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    nav.scrolled {
+      background: rgba(26, 43, 60, 0.98);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    
+    .logo:hover {
+      transform: scale(1.02);
+    }
+    
+    .logo i {
+      margin-right: 12px;
+      color: var(--secondary);
+      font-size: 1.5em;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 2rem;
+    }
+    
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+    
+    .nav-links a.active {
+      color: var(--secondary);
+    }
+    
+    .nav-links a.active::after {
+      width: 100%;
+    }
+    
+    .nav-links a:hover {
+      color: var(--secondary);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--secondary);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-btn:hover {
+      color: var(--secondary);
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 15px 35px;
+      background: var(--secondary);
+      color: var(--dark);
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      animation: pulse 2s infinite;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+    
+    .btn:hover {
+      background: #ffcc00;
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--secondary);
+      color: var(--secondary);
+      margin-left: 15px;
+    }
+    
+    .btn-outline:hover {
+      background: var(--secondary);
+      color: var(--dark);
+    }
+    
+    section {
+      display: none;
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      border-radius: 15px;
+      margin-top: 30px;
+      background-color: white;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    }
+    
+    .section-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient);
+      opacity: 0.03;
+      z-index: 0;
+      border-radius: 15px;
+    }
+    
+    section > *:not(.section-bg) {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-size: 2.8rem;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      font-weight: 700;
+      position: relative;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 5px;
+      background: var(--secondary);
+      border-radius: 3px;
+    }
+    
+    .section-title p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+      color: var(--text);
+      opacity: 0.9;
+    }
+    
+    #home {
+      display: block;
+      background: white;
+    }
+    
+    .intro-text {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      text-align: center;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .highlight-box {
+      background: rgba(44, 123, 229, 0.05);
+      border-left: 4px solid var(--primary);
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 20px 0;
+    }
+    
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      aspect-ratio: 1/1;
+      transition: all 0.4s ease;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.15);
+    }
+    
+    .gallery-item h3 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.5rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      color: white;
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+    
+    .gallery-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+    
+    .overlay i {
+      color: white;
+      font-size: 2.5rem;
+    }
+    
+    .activities-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .activity-item {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .activity-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      border-color: rgba(44, 123, 229, 0.2);
+    }
+    
+    .activity-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
+      color: white;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .activity-item h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .activity-item p {
+      color: var(--text);
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+    }
+    
+    .activity-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .activity-link i {
+      margin-left: 8px;
+      transition: transform 0.3s ease;
+    }
+    
+    .activity-link:hover {
+      color: var(--secondary);
+    }
+    
+    .activity-link:hover i {
+      transform: translateX(5px);
+    }
+    
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+    }
+    
+    .project-item {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .project-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+    }
+    
+    .project-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    
+    .project-item:hover .project-img {
+      transform: scale(1.1);
+    }
+    
+    .project-content {
+      padding: 1.5rem;
+    }
+    
+    .project-item h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    
+    .project-item p {
+      color: var(--text);
+      opacity: 0.9;
+      margin-bottom: 1rem;
+    }
+    
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .project-link i {
+      margin-left: 8px;
+      transition: transform 0.3s ease;
+    }
+    
+    .project-link:hover {
+      color: var(--secondary);
+    }
+    
+    .project-link:hover i {
+      transform: translateX(5px);
+    }
+    
+    .booking-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.8);
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(44, 123, 229, 0.2);
+      background: white;
+    }
+    
+    button[type="submit"] {
+      grid-column: span 2;
+      padding: 16px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+    
+    button[type="submit"]:hover {
+      background: #1a68d1;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1.5rem;
+      flex-shrink: 0;
+      font-size: 1.2rem;
+    }
+    
+    .contact-text h4 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    
+    .contact-text p,
+    .contact-text a {
+      color: var(--text);
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    
+    .contact-text a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .contact-text a:hover {
+      color: var(--secondary);
+      text-decoration: underline;
+    }
+    
+    .map-container {
+      margin-top: 3rem;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      height: 400px;
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--dark);
+      color: white;
+      margin-top: 6rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      text-align: left;
+    }
+    
+    .footer-column h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      color: var(--secondary);
+    }
+    
+    .footer-column p {
+      margin-bottom: 1rem;
+      opacity: 0.8;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--secondary);
+      color: var(--dark);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      opacity: 0.7;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 1200px) {
+      .nav-container {
+        padding: 1rem;
+      }
+      
+      section {
+        padding: 5rem 1.5rem;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .booking-form {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+      
+      button[type="submit"] {
+        grid-column: span 1;
+      }
+      
+      .section-title h2 {
+        font-size: 2.4rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--dark);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 3rem;
+        transition: all 0.5s ease;
+      }
+      
+      .nav-links.active {
+        left: 0;
+      }
+      
+      .nav-links li {
+        margin: 1.5rem 0;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      header h1 {
+        font-size: 2.8rem;
+      }
+      
+      header p {
+        font-size: 1.2rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2.2rem;
+      }
+      
+      .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .btn-outline {
+        margin-left: 0;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      header {
+        padding: 100px 20px;
+      }
+      
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+      
+      .projects, .activities-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo" onclick="showSection('home', this)">
+        <i class="fas fa-mountain"></i> Tuba, Benguet
+      </a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#" class="active" onclick="showSection('home', this)">Home</a></li>
+        <li><a href="#" onclick="showSection('about', this)">About</a></li>
+        <li><a href="#" onclick="showSection('activities', this)">Activities</a></li>
+        <li><a href="#" onclick="showSection('gallery', this)">Gallery</a></li>
+        <li><a href="#" onclick="showSection('projects', this)">News</a></li>
+        <li><a href="#" onclick="showSection('contact', this)">Contact</a></li>
+        <li><a href="index.html" onclick="logout()">Log Out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <div class="header-overlay"></div>
+    <h1>Discover Tuba, Benguet</h1>
+    <p>Where mountain serenity meets cultural heritage</p>
+    <div class="btn-group">
+      <a href="#" class="btn" onclick="showSection('activities', document.querySelector('a[onclick*=\'activities\']'))">Explore Activities</a>
+      <a href="#" class="btn btn-outline" onclick="showSection('booking', document.querySelector('a[onclick*=\'booking\']'))">Plan Your Visit</a>
+    </div>
+  </header>
+
+  <section id="home">
+    <div class="section-bg"></div>
+    <div class="section-title">
+      <h2>Welcome to Tuba</h2>
+      <p>Your gateway to the breathtaking landscapes of Benguet</p>
+    </div>
+    <div class="intro-text">
+      <p>Tuba is a hidden paradise in the Cordillera mountains, offering visitors a perfect blend of natural wonders, rich cultural heritage, and unforgettable adventures. Just a short drive from Baguio City, Tuba provides a serene escape with its cool climate, lush pine forests, and panoramic mountain views.</p>
+    </div>
+    <div class="highlight-box">
+      <p>Named after the local term for a plant species abundant in the area, Tuba boasts numerous attractions including hot springs, caves, and eco-parks that showcase the region's natural beauty and indigenous culture.</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-bg"></div>
+    <div class="section-title">
+      <h2>About Tuba</h2>
+      <p>Discover the heart and soul of this mountain municipality</p>
+    </div>
+    <div class="intro-text">
+      <p>Tuba is a first-class municipality in Benguet province with a population of about 50,000 people spread across its 13 barangays. Situated at an elevation of approximately 1,300 meters above sea level, it enjoys a cool climate year-round with temperatures ranging from 15°C to 24°C.</p>
+      
+      <p>The municipality serves as the gateway between the lowlands and Baguio City, making it strategically important while maintaining its peaceful, rural charm. Tuba's economy thrives on agriculture, tourism, and light industries, with strawberry and vegetable farming being particularly prominent.</p>
+      
+      <p>Cultural heritage remains strong in Tuba, with many residents belonging to the Ibaloi and Kankana-ey indigenous groups. Traditional practices, crafts, and festivals continue to be celebrated, offering visitors a glimpse into the region's rich cultural tapestry.</p>
+    </div>
+  </section>
+
+  <section id="activities">
+    <div class="section-bg"></div>
+    <div class="section-title">
+      <h2>Things to Do</h2>
+      <p>Experience the best of Tuba's natural and cultural attractions</p>
+    </div>
+    <div class="activities-list">
+      <div class="activity-item">
+        <div class="activity-icon">
+          <i class="fas fa-tree"></i>
+        </div>
+        <h3>Maryknoll Ecological Sanctuary</h3>
+        <p>A peaceful retreat center featuring beautiful gardens, meditation areas, and environmental exhibits that promote ecological awareness.</p>
+        <a href="https://turistaboy.com/maryknoll-ecological-sanctuary/" class="activity-link" target="_blank">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      
+      <div class="activity-item">
+        <div class="activity-icon">
+          <i class="fas fa-hot-tub"></i>
+        </div>
+        <h3>Asin Hot Springs</h3>
+        <p>Relax in therapeutic hot springs surrounded by mountain views, with temperatures perfect for soothing tired muscles.</p>
+        <a href="https://docfonollera.blogspot.com/2013/06/asin-hot-springs-asin-pooten-resort.html" class="activity-link" target="_blank">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      
+      <div class="activity-item">
+        <div class="activity-icon">
+          <i class="fas fa-paint-brush"></i>
+        </div>
+        <h3>Tam-Awan Village</h3>
+        <p>Experience Cordillera culture through traditional huts, art exhibits, and workshops with local artists and craftsmen.</p>
+        <a href="https://itsevamarie.blogspot.com/2017/03/more-of-benguet.html" class="activity-link" target="_blank">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      
+      <div class="activity-item">
+        <div class="activity-icon">
+          <i class="fas fa-mountain"></i>
+        </div>
+        <h3>Aran Cave Adventure</h3>
+        <p>Explore this fascinating cave system featuring unique rock formations and an underground river, perfect for adventure seekers.</p>
+        <a href="https://steemit.com/philippines/@migztaraki/aran-cave" class="activity-link" target="_blank">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      
+      <div class="activity-item">
+        <div class="activity-icon">
+          <i class="fas fa-church"></i>
+        </div>
+        <h3>Baguio Cathedral</h3>
+        <p>Visit this iconic pink church with its twin spires, beautiful stained glass, and panoramic views of the city below.</p>
+        <a href="http://www.gobaguio.com/baguio-cathedral.html" class="activity-link" target="_blank">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="section-bg"></div>
+    <div class="section-title">
+      <h2>Gallery</h2>
+      <p>Visual journey through Tuba's stunning landscapes</p>
+    </div>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="aran cave.jpg" alt="Mountain View in Tuba">
+        <div class="overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+        <h3>Aran Cave Exploration</h3>
+      </div>
+      <div class="gallery-item">
+        <img src="asin hot spring.jpg" alt="Asin Hot Spring">
+        <div class="overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+        <h3>Asin Hot Spring</h3>
+      </div>
+      <div class="gallery-item">
+        <img src="lion head.webp" alt="Lion's Head">
+        <div class="overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+        <h3>Iconic Lion's Head</h3>
+      </div>
+        <div class="gallery-item">
+        <img src="UM-A FARM.jpg" alt="UM-A">
+        <div class="overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+        <h3>UM-A Farm Spot</h3>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-bg"></div>
+    <div class="section-title">
+      <h2>News & Developments</h2>
+      <p>Latest updates and projects in Tuba</p>
+    </div>
+    <div class="projects">
+      <div class="project-item">
+        <img src="tesda in tuba.jpg" alt="TESDA Programs" class="project-img">
+        <div class="project-content">
+          <h3>TESDA Skills Training Programs</h3>
+          <p>New vocational courses offered to enhance local employment opportunities in tourism and agriculture sectors.</p>
+          <a href="https://www.facebook.com/story.php/?story_fbid=485405990775037&id=100079169212666&_rdr" class="project-link" target="_blank">Read more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="Barangay-Road-in-Tuba-Improved-for-Safety-and-Easy-Access-1.jpg" alt="Road Improvement" class="project-img">
+        <div class="project-content">
+          <h3>Road Improvement Projects</h3>
+          <p>Ongoing infrastructure developments to improve accessibility and safety across Tuba's barangays.</p>
+          <a href="https://benguet.gov.ph/barangay-road-in-tuba-improved-for-safety-and-easy-access/3/" class="project-link" target="_blank">Read more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="project-item">
+        <img src="Tuba-prioritizes-eco-tourism-for-economic-growth-624x375.jpg" alt="Eco-tourism" class="project-img">
+        <div class="project-content">
+          <h3>Eco-tourism Growth Initiative</h3>
+          <p>Municipal programs to promote sustainable tourism while preserving Tuba's natural environment.</p>
+          <a href="https://baguioheraldexpressonline.com/tuba-prioritizes-eco-tourism-for-economic-growth/#google_vignette" class="project-link" target="_blank">Read more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="booking">
+    <div class="section-bg"></div>
+    <div class="section-title">
+      <h2>Plan Your Visit</h2>
+      <p>Book your Tuba adventure today</p>
+    </div>
+    <form class="booking-form" onsubmit="return confirmBooking(); return false;">
+      <div class="form-group">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+      </div>
+      <div class="form-group">
+        <label for="phone">Contact Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+      </div>
+      <div class="form-group">
+        <label for="guests">Number of Guests:</label>
+        <input type="number" id="guests" name="guests" min="1" placeholder="How many people?">
+      </div>
+      <div class="form-group">
+        <label for="checkin">Check-in Date:</label>
+        <input type="date" id="checkin" name="checkin" required>
+      </div>
+      <div class="form-group">
+        <label for="checkout">Check-out Date:</label>
+        <input type="date" id="checkout" name="checkout" required>
+      </div>
+      <div class="form-group full-width">
+        <label for="interests">Interests/Activities:</label>
+        <select id="interests" name="interests" multiple>
+          <option value="hotsprings">Hot Springs</option>
+          <option value="hiking">Hiking</option>
+          <option value="caving">Caving</option>
+          <option value="culture">Cultural Experiences</option>
+          <option value="farm">Farm Tours</option>
+        </select>
+      </div>
+      <div class="form-group full-width">
+        <label for="message">Special Requests:</label>
+        <textarea id="message" name="message" rows="4" placeholder="Any special requirements or questions"></textarea>
+      </div>
+      <button type="submit">Submit Booking Request</button>
+    </form>
+  </section>
+
+  <section id="contact">
+    <div class="section-bg"></div>
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>Get in touch for more information</p>
+    </div>
+    
+    <div class="contact-info">
+      <div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-text">
+            <h4>Email</h4>
+            <a href="mailto:info@tuba.gov.ph">info@tuba.gov.ph</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-text">
+            <h4>Phone</h4>
+            <p>(074) 444-8255</p>
+            <p>(074) 444-8256</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="contact-text">
+            <h4>Office Hours</h4>
+            <p>Monday to Friday: 8:00 AM - 5:00 PM</p>
+            <p>Saturday: 8:00 AM - 12:00 PM</p>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="contact-text">
+            <h4>Address</h4>
+            <p>Municipal Hall, Poblacion, Tuba, Benguet 2603, Philippines</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-info-circle"></i>
+          </div>
+          <div class="contact-text">
+            <h4>Tourism Office</h4>
+            <p>For guided tours and travel information, visit our Tourism Office at the Municipal Hall.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7651.566896759562!2d120.560582!3d16.389999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391a1685b1f0d8d%3A0x8d1c1b5b5b5b5b5b!2sTuba%2C%20Benguet!5e0!3m2!1sen!2sph!4v1620000000000!5m2!1sen!2sph" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>About Tuba</h3>
+        <p>Tuba is a first-class municipality in Benguet province, known for its cool climate, scenic landscapes, and rich cultural heritage.</p>
+        <div class="social-links">
+          <a href="https://web.facebook.com/piotuba2022/?_rdc=1&_rdr#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.youtube.com/watch?v=D9C3Rlzmmxo&t=34s" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <p><a href="https://benguet.gov.ph" target="_blank">Benguet Provincial Government</a></p>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2023 Municipality of Tuba, Benguet. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Track current active section
+    let currentActiveLink = null;
+    let currentSection = 'home';
+
+    // Show section function
+    function showSection(id, clickedLink) {
+      // Don't change section if clicking links within content
+      if (clickedLink && clickedLink.closest('section')) {
+        return true; // Allow default link behavior
+      }
+      
+      currentSection = id;
+      const sections = document.querySelectorAll("section");
+      sections.forEach(section => {
+        section.style.display = section.id === id ? 'block' : 'none';
+      });
+      
+      // Close mobile menu if open
+      navLinks.classList.remove('active');
+      
+      // Smooth scroll to section
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+      
+      // Update active link
+      if (currentActiveLink) {
+        currentActiveLink.classList.remove('active');
+      }
+      if (clickedLink && clickedLink.tagName === 'A') {
+        clickedLink.classList.add('active');
+        currentActiveLink = clickedLink;
+      }
+      
+      // Update URL without reload
+      history.pushState(null, null, `#${id}`);
+    }
+
+    // Set home as active by default
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check URL hash on load
+      const hash = window.location.hash.substring(1);
+      if (hash && document.getElementById(hash)) {
+        showSection(hash);
+      } else {
+        const homeLink = document.querySelector('.nav-links li:first-child a');
+        homeLink.classList.add('active');
+        currentActiveLink = homeLink;
+        document.getElementById('home').style.display = 'block';
+      }
+      
+      // Set today's date as default for check-in
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('checkin').min = today;
+      
+      // Set tomorrow's date as default for check-out
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      document.getElementById('checkout').min = tomorrow.toISOString().split('T')[0];
+    });
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', function() {
+      const hash = window.location.hash.substring(1);
+      if (hash && document.getElementById(hash)) {
+        showSection(hash);
+      }
+    });
+
+    // Modify all content links to open in new tab and not affect navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      const contentLinks = document.querySelectorAll('.activity-link, .project-link');
+      contentLinks.forEach(link => {
+        if (!link.onclick) { // Don't override existing click handlers
+          link.setAttribute('target', '_blank');
+          link.addEventListener('click', function(e) {
+            // Keep current section visible
+            e.stopPropagation();
+          });
+        }
+      });
+    });
+
+    function confirmBooking() {
+      const name = document.getElementById('name').value;
+      alert(`Thank you, ${name}! Your booking request has been received. We'll contact you shortly to confirm your reservation.`);
+      return false; 
+    }
+
+    function logout() {
+      const confirmLogout = confirm("Are you sure you want to log out?");
+      if (confirmLogout) {
+        alert("You have been logged out.");
+        window.location.href = "index.html"; 
+      }
+    }
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    document.getElementById('checkin').addEventListener('change', function() {
+      const checkinDate = new Date(this.value);
+      const checkoutField = document.getElementById('checkout');
+      
+      const minCheckout = new Date(checkinDate);
+      minCheckout.setDate(minCheckout.getDate() + 1);
+      checkoutField.min = minCheckout.toISOString().split('T')[0];
+      
+      if (new Date(checkoutField.value) < minCheckout) {
+        checkoutField.value = minCheckout.toISOString().split('T')[0];
+      }
+    });
+  </script>
+</body>
+</html>
